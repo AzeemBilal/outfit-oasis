@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script>
+    function validateForm() {
+      const password = document.querySelector('input[name="p1"]').value;
+      const confirmPassword = document.querySelector('input[name="p2"]').value;
+      const errorLabel = document.getElementById("error-message");
+
+      if (password !== confirmPassword) {
+        errorLabel.textContent = "Passwords do not match!";
+        return false; // Prevent form submission
+      } else {
+        errorLabel.textContent = ""; // Clear error if passwords match
+        return true; // Allow form submission
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="container1">
+    <div class="registration form">
+      <header>Signup</header>
+      <form action="/signupdata" onsubmit="return validateForm()">
+        <input type="text" placeholder="Enter Your Username" name="u1" required>
+        <input type="password" placeholder="Create a password" name="p1" required>
+        <input type="password" placeholder="Confirm your password" name="p2" required>
+        
+        <input class="rad" type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+        <input class="rad" type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label>
+        
+        <br>
+        <label id="error-message" style="color: red;">{{error}}</label>
+        <input type="submit" class="button" value="Signup">
+      </form>
+
+      <div class="signup">
+        <span class="signup">Already have an account?
+         <a href="/login">Login</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

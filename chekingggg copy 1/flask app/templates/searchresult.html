@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Recommended Store</title> 
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body >
+<div class="container7">
+
+<center>
+<h1>Recommended Store</h1>
+<br>
+<a href="/onlinesearch"><button id="srbackbutton">Back</button></a>
+<br>
+<h2>{{cc}}</h2><br>
+<table id="srtable">
+<tr >
+<th class="srth">Name</th>
+<th class="srth">Links</th>
+  {% for i in ssl.keys() %}
+    <tr>
+      <td class="srtd">{{i}}</td>
+      <td class="srtd"><a href={{ssl[i]}}>{{ssl[i]}}</a></td>
+    </tr>
+  {% endfor %}
+</tr>
+
+</table>
+</center>
+</div>
+</body>
+</html>

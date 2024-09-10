@@ -1,0 +1,57 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    </head>
+<body>
+  <div class="container4">
+ <center><h1>Event</h1>
+
+  <a href="/main"><button>Back</button></a>
+  <br>
+<form action="/addevent">
+ 
+ <hr>
+ <b><label for="Event">Event Name:</label></b>
+ <input class="inp" type="text" placeholder="Enter Event Name" name="en" required>
+ <br>
+ <br>
+ <b><label >Cloth Category:</label></b>
+ <label for="c1">Casual</label>
+ <input type="radio" name="cfc" id="c1" value ="c">
+ <label for="f1">Formal</label>
+ <input type="radio" name="cfc" id="f1" value ="f">
+ <br>
+ <br>
+ <button type="submit">Add</button>
+</form>
+ <hr>
+ <form action="/deleteevent">
+ <table style="width:20%" >
+
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+    </tr>
+  {% for i in elist.keys() %}
+    <tr>
+      <td>{{i}}</td>
+      <td>{{elist[i]["name"]}}</td>
+
+    </tr>
+  {% endfor %}
+  </table>
+  <hr>
+  <b><label for="Event">Event ID:</label></b>
+  <input class="inp" type="text" placeholder="Enter ID To Delete" name="de" required>
+  <br>
+  <label for="Event" style="color: red;">{{error}}</label>
+  <br>
+  
+  <button type="submit" id="bleft" >Delete</button>
+
+</center>
+</form>
+</div>
+</body>        
+</html>

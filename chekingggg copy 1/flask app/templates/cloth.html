@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  </head>
+<body>
+  <div class="container3">
+ <center><h1>Cloth ADD</h1>
+  <a href="/main"><button>Back</button></a>
+ 
+ <hr>
+ <form action="/addcloth" method="post" enctype="multipart/form-data" >
+ <b><label>Image Upload:</label></b>
+ <input type="file" name ="image" id="button" value=""><br><br>
+ <br>
+<b><label for="Ccategory" style="display: inline-block;">Cloth Category:</label></b>
+ <select name="ccat" id="Ccategory" style="display: inline-block;">
+   <option value="Shirt">Shirt</option>
+   <option value="Pant">Pant</option>
+   <option value="Shalwar Kameez">Shalwar Kameez</option>
+ </select>
+ <br>
+ <br>
+ <b><label for="subcategory" style="display: inline-block;" >Cloth Sub Category:</label></b>
+ <select name="cscat" id="subcategory" style="display: inline-block;">
+   <option value="Casual">Casual</option>
+   <option value="Formal">formal</option>
+ </select>
+ <br>
+ <br>
+ <b><label for="cothc" style="display: inline-block;">Cloth Colour:</label></b>
+ <select name="cc" id="cothc" style="display: inline-block;">
+   <option value="blue">Blue</option>
+   <option value="red">Red</option>
+   <option value="yellow">Yellow</option>
+   <option value="green">Green</option>
+   <option value="brown">Brown</option>
+   <option value="purple">Purple</option>
+   <option value="pink">Pink</option>
+   <option value="orange">Orange</option>
+   <option value="white">White</option>
+   <option value="black">Black</option>
+ </select>
+ <br>
+ <label style="color: red" >{{imgerror}}</label>
+ <br>
+ <button type="submit">Add</button>
+</form>
+ <hr>
+ <table style="width:60%" >
+    <tr>
+      <th>ID</th>
+      <th>Cloth Category</th>
+      <th>Cloth Sub Category</th>
+      <th>Cloth Colour</th>
+      <th>Image Name</th>
+    </tr>
+    {% for i in clist.keys() %}
+    <tr>
+      <td>{{i}}</td>
+      <td>{{clist[i]["clothcat"]}}</td>
+      <td>{{clist[i]["clothsubcat"]}}</td>
+      <td>{{clist[i]["clothcolor"]}}</td>
+      <td><a href="/image/{{clist[i]['img']}}"  target="_blank"   onclick="window.open(this.href,'popup','width=350,height=320,top=200,left=400,menubar=no,location=no,resizable=no')">{{clist[i]["img"]}}</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  <hr>
+  <form action="/deletecloth">
+  <b><label>Cloth ID:</label></b>
+  <input class="inp" type="text" name="de" placeholder="Enter ID To Delete">
+  <br>
+  <label style="color: red;">{{error}}</label>
+  <br>
+  <button type="submit">Delete</button>
+  <br>
+  <br>
+</form>
+
+</center>
+
+</div>
+</body>        
+</html>

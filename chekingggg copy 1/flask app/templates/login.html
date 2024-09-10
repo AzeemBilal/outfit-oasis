@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Login Form</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container1">
+    <div class="login form">
+      <header>Login</header>
+      <form action="/logindata">
+        <input type="text" name="u1" placeholder="Enter your Username">
+        <input type="password" name="p1" placeholder="Enter your password">
+        <label style="color: red;" >{{error}}</label>
+        <input type="submit"  class="button" value="Login">
+      </form>
+      <div class="signup">
+        <span class="signup">Don't have an account?
+         <a href="/signup">Signup</a>
+        </span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>
+Personal Inventory 
+</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>   
+<body>
+<div class="container6">
+<center>
+<h1>Personal Inventory</h1>    
+<a href="/main"><button id="pibackbutton">Back</button></a>
+<h1>{{se}}</h1>
+<a href="/next"><button >Next</button></a>
+<br>
+
+<h1>{{pict1}}</h1><br>
+<img src="{{ url_for('static', filename='images/'+piim1) }}" width="320" height="240"><br>
+<br>
+<h1>{{pict2}}</h1><br>
+<img src="{{ url_for('static', filename='images/'+piim2) }}" width="320" height="240"><br>
+</center>
+</div>
+
+
+</body>
+</html>

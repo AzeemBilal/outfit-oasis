@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container2">
+    
+    <center><h1>Welcome to Outfit Oasis</h1></center>
+    <hr>
+
+    <div class="button-container">
+      <h3 class="hclass">Welcome {{un}}!</h3>
+      <a href="/event"><button>Add Event</button></a> 
+      <a href="/cloth"><button>Add Cloth</button></a>
+      <a href="/login"><button>Logout</button></a>
+    </div>
+    <hr>
+    <center> 
+      <h1>Search Clothes</h1>
+      <br>
+      <form action="/onlinepersonalsearch">
+        <b><label for="select" style="display: inline-block;">Select Event:</label></b>
+        <select name="select" id="select" style="display: inline-block;">
+          {% for i in elist.keys() %}
+          <option value={{i}}>{{elist[i]["name"]}}</option>
+          {% endfor %}
+        </select>
+        <br><br>
+        <div class="button-container">
+          <button type="submit" name="os" value="T">Search Online</button>
+          <button type="submit" name="pi" value="T">Personal Inventory</button>
+        </div>
+      </form>
+      <br>
+      <!-- New button for AI Search Results -->
+      <div class="button-container">
+        <a href="{{ url_for('ai_searchresult') }}"><button type="button" class="button-container">AI Search Results</button></a>
+      </div>
+    </center>
+  </div>
+</body>
+</html>
